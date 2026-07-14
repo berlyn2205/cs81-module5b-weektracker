@@ -63,3 +63,34 @@ const myWeek = [
 // 1. I predict creative activities will have the highest enjoyment scores.
 // 2. I predict creative will be the most common category.
 // 3. I think evening activities may have higher enjoyment because I have more free time.
+
+
+// Calculates total hours spent on activities
+function totalHours(week) {
+  return week.reduce((total, activity) => {
+    return total + activity.hoursSpent;
+  }, 0);
+}
+
+
+// Finds activities with enjoyment above 8
+function highEnjoymentActivities(week) {
+  return week.filter(activity => activity.enjoyment > 8);
+}
+
+
+// Gets only activity names using map()
+function activityNames(week) {
+  return week.map(activity => activity.activity);
+}
+
+
+// Finds the average enjoyment score
+function averageEnjoyment(week) {
+  const total = week.reduce((sum, activity) => {
+    return sum + activity.enjoyment;
+  }, 0);
+
+  return total / week.length;
+}
+
