@@ -94,3 +94,41 @@ function averageEnjoyment(week) {
   return total / week.length;
 }
 
+// Custom higher-order function
+// Accepts another function as a parameter
+function filterByCondition(testFn) {
+  return myWeek.filter(testFn);
+}
+
+
+// Testing functions
+console.log("Analyzing My Weekly Activities...");
+
+console.log(
+  "Total hours:",
+  totalHours(myWeek)
+);
+
+console.log(
+  "High enjoyment activities:",
+  highEnjoymentActivities(myWeek)
+);
+
+console.log(
+  "Activity names:",
+  activityNames(myWeek)
+);
+
+console.log(
+  "Average enjoyment:",
+  averageEnjoyment(myWeek)
+);
+
+
+// Using custom higher-order function
+console.log(
+  "Low effort, high enjoyment:",
+  filterByCondition(activity => 
+    activity.hoursSpent <= 1 && activity.enjoyment >= 9
+  )
+);
